@@ -1,0 +1,48 @@
+<html>
+
+<script src="greet.js"></script>
+<script src="test/greet.tests.js"></script>
+
+
+
+<head>
+    <title>BootCamp Tests</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js" charset="utf-8"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
+
+</head>
+
+
+<body>
+    <div id="mocha">
+        <script>
+            mocha.setup('bdd');
+            var assert = chai.assert;
+            //               Testing the greet function?
+        </script>
+        <script src="greet.js" charset="utf-8"></script>
+        <script src="test/greet.test.js" charset="utf-8"></script>
+
+
+
+
+        <script>
+            mocha.checkLeaks();
+            mocha.run();
+        </script>
+
+
+
+    </div>
+
+
+
+
+</body>
+
+
+
+</html>
