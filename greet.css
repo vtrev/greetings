@@ -306,3 +306,7 @@ background-color:lightgray;
 #p1{
     height: 100px;
     }
+
+.block{
+    display: inline-block;
+}

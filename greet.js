@@ -4,7 +4,9 @@ var displayName = document.querySelector('#displayName');
 var getInput = document.querySelector('#inputBox');
 
 var greetBtn = document.querySelector('#greetBtn');
+var displayCount = document.querySelector('#countNumber');
 
+var counter = 0;
 
 var getName = function () {
     var name = getInput.value;
@@ -40,6 +42,7 @@ var GreetingsFactory = function () {
         if (language === 'Zulu') {
 
             return 'Saubona ' + inputName + '!'
+            
 
         }
     }
@@ -79,12 +82,13 @@ greetBtn.addEventListener('click', function run() {
 
     getName();
     var langFromDom = greet.setLang(radioValue)
-    var nameFromDom  = getName().name;
-    displayName.innerHTML = greet.greetNow(nameFromDom,langFromDom);
-    
+    var nameFromDom = getName().name;
+    displayName.innerHTML = greet.greetNow(nameFromDom, langFromDom);
     clearBox();
-
-
-    console.log(radioValue);
+    counter++;
+    displayCount.innerHTML = counter;
+    
+    
+    
 
 })
