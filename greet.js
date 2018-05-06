@@ -34,11 +34,12 @@ var setCounter = function(){
     displayCount.innerHTML = localStorage.getItem('counter');
     
 }
-function checkCounter(){
+var checkCounter = function (){
+    
     if(localStorage['counter'] === undefined){
         let zero = JSON.stringify(0);
         localStorage.setItem('counter',zero)
-    }
+    }counter++;
     
 }
 
@@ -101,16 +102,20 @@ var greet = GreetingsFactory();
 greetBtn.addEventListener('click', function run() {
 
     var radioValue = document.querySelector('input[name="radioLang"]:checked').value;
-
     getName();
     var langFromDom = greet.setLang(radioValue)
     var nameFromDom = getName().name;
     displayName.innerHTML = greet.greetNow(nameFromDom, langFromDom);
     clearBox();
-    counter++;
+    
+    //counter shit
+
     checkCounter();
-    var storageCount = JSON.parse(localStorage.getItem(counter)); //parseFloat(localStorage.getItem('counter'));
-    localStorage.setItem('counter', storageCount+counter);
+    
+    var storageCount = JSON.parse(localStorage.getItem('counter')); //parseFloat(localStorage.getItem('counter'));
+   
+    localStorage.setItem('counter', storageCount += 1);
+    
     setCounter();
 
 })
