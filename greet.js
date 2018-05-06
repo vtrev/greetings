@@ -1,39 +1,58 @@
 //=========================DOM======================
+
+//adding querySelectors and refs
+
 var displayName = document.querySelector('#displayName');
 
 var getInput = document.querySelector('#inputBox');
 
 var greetBtn = document.querySelector('#greetBtn');
-var displayCount = document.querySelector('#countNumber');
 
+var displayCount = document.querySelector('#countNumber');
+//a global session counter to kee track of how many greets there are
 var counter = 0;
 
+//get the name of the user from the textbox
 var getName = function () {
     var name = getInput.value;
     name = name.trim();
+    //Make the first letter of the name Uppercase
     //name = name.charAt(0).toUpperCase();
     return {
         name
     }
 }
-
-
-var showName = function () {
-
-
-}
+//function to cear the textbox 
 
 var clearBox = function () {
     getInput.value = "";
 }
 
+//set the total counts of greetings
+var setCounter = function(){
+
+    displayCount.innerHTML = localStorage.getItem('counter');
+    
+}
+function checkCounter(){
+    if(localStorage['counter'] === undefined){
+        let zero = JSON.stringify(0);
+        localStorage.setItem('counter',zero)
+    }
+    
+}
+
+
 
 
 //==================LOGIC=============================
+
+// the greetings factory functions 
+
 var GreetingsFactory = function () {
 
 
-
+//function to takes in the user's name + their language as parameters and return a greeting accordingly
     var greetNow = function (inputName, language) {
 
         if (language === 'English') {
@@ -47,7 +66,7 @@ var GreetingsFactory = function () {
         }
     }
 
-
+//function to take in(from the DOM) and return the user's desired language and return it
     var setLang = function (value) {
         var lang = '';
         if (value === 'English') {
@@ -60,6 +79,8 @@ var GreetingsFactory = function () {
     }
 
 
+
+
     return {
         greetNow,
         setLang
@@ -68,14 +89,15 @@ var GreetingsFactory = function () {
 }
 
 
-
+//an instance of the Greetings factory function
 
 var greet = GreetingsFactory();
 
 
-//greetBtn.addEventListener('click',greetFunctio
 
 //=======================EVENTS==========================
+//an event listener for the gereet button
+
 greetBtn.addEventListener('click', function run() {
 
     var radioValue = document.querySelector('input[name="radioLang"]:checked').value;
@@ -86,9 +108,9 @@ greetBtn.addEventListener('click', function run() {
     displayName.innerHTML = greet.greetNow(nameFromDom, langFromDom);
     clearBox();
     counter++;
-    displayCount.innerHTML = counter;
-    
-    
-    
+    checkCounter();
+    var storageCount = JSON.parse(localStorage.getItem(counter)); //parseFloat(localStorage.getItem('counter'));
+    localStorage.setItem('counter', storageCount+counter);
+    setCounter();
 
 })
