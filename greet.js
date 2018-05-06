@@ -7,6 +7,7 @@ var displayName = document.querySelector('#displayName');
 var getInput = document.querySelector('#inputBox');
 
 var greetBtn = document.querySelector('#greetBtn');
+var resetBtn = document.querySelector('#resetBtn');
 
 var displayCount = document.querySelector('#countNumber');
 //a global session counter to kee track of how many greets there are
@@ -118,4 +119,9 @@ greetBtn.addEventListener('click', function run() {
     
     setCounter();
 
-})
+});
+resetBtn.addEventListener('click',function run(){
+   localStorage.setItem('counter',JSON.stringify(0));
+    displayCount.innerHTML = 0;
+    
+});
