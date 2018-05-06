@@ -1,37 +1,65 @@
 <html>
-    <head>
-            <link rel="stylesheet" href="greet.css">
-    </head>
 
-    <body>
+<head>
+    <link rel="stylesheet" href="greet.css">
+</head>
+
+<body>
+
+    <div class="row center">
+        <div class="col-12" id="p1">
+
+
+            <p>Hello and welcome! Choose your language, enter your name in the textbox below ,hit the greet button and you will be greeted in your desired language. </p>
+        </div>
+    </div>
+    <div class="row center">
+        <div class="col-12">
+            <h1 id="displayName">Hello World!</h1>
+        </div>
+
+    </div>
+    <div class="row center">
+        <div class="col-3"></div>
+
+        <div class="col-6 center">
+            <input id="inputBox" type="text" placeholder="Type in your name here">
+        </div>
+
+        <div class="col-2">
+            <p id="counter text" class="block">Counter : &nbsp;<span id="countNumber">0</span></p>
+
+
+
+        </div>
+        <div class="col-1"></div>
+
+    </div>
+    <div class="row center">
+        <div class="col-12"></div>
+        <button id="greetBtn">Greet!</button>
+
+    </div>
+    <div class="row center">
+        <div class="col-12"></div>
+        <input type="radio" name="radioLang" value="English"> English
+        <input type="radio" name="radioLang" value="Zulu">Zulu
+        <!--
+            <input type="radio" name="radioLang">Tshivenda
+            <input type="radio" name="radioLang">Afrikaans
+            <input type="radio" name="radioLang">XiTsonga
+            <input type="radio" name="radioLang">isiXhosa
             
-            <div class="row" id="p1"><div class="col-12"></div></div>
-        <div class="row center">
-            <div class="col-12" >
-                <h1 id="displayName"></h1>    
-            </div>
-
-        </div>
-        <div class="row center">
-            <div class="col-3"></div>
-           
-            <div class="col-6 center">
-                <input id="inputBox"  type="text" placeholder="Type in your name here">
-            </div>
-           
-            <div class="col-3"></div>
-
-        </div>
-        <div class="row center">
-            <div class="col-12"></div>
-            <button id="greetBtn">Greet!</button>
-
-        </div>
+-->
 
 
-        
-    </body>
-    <script src="greet.js"></script>
+    </div>
+
+
+
+
+</body>
+<script src="greet.js"></script>
 
 
 
