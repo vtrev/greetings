@@ -187,7 +187,7 @@ p {
     .container {
         width: 80%;
     }
-/*
+    /*
     #inputBox {
         background-color: lime;
 
@@ -204,16 +204,19 @@ p {
 
 
     }
-    #counterAndResetBox{
-    position: relative;
-    top: 0px;
-    right:80px;
-    
-}
-    #greetBtn{
+    #counterAndResetBox {
         position: relative;
-        bottom: 67px;
-        left: 85px;
+        top: 50px;
+
+
+    }
+    #greetBtn {
+        position: relative;
+
+    }
+    #greetBox {
+        position: relative;
+        bottom: 110px;
     }
 
 
@@ -285,22 +288,30 @@ p {
         width: 75%;
         max-width: 60rem;
     }
-/*
+    /*
     #inputBox {
         background-color: black;
 
     }
 */
- #greetBtn {
-    border: 2px solid darkslategray;
-    width: 200px;
-    height: 60px;
-    background-color: white;
-    /* background: #333447; */
-    border-radius: 25px;
+    #greetBtn {
+        border: 2px solid darkslategray;
+        width: 230px;
+        height: 60px;
+        background-color: white;
+        /* background: #333447; */
+        border-radius: 25px;
+        position: relative;
+        right: 261px;
+        top: 17px;
 
+    }
 
-}
+    #counterAndResetBox {
+        position: relative;
+        right: 140px;
+        bottom : 173px;
+    }
 
 
 
@@ -325,6 +336,7 @@ p {
     border: 2px solid darkslategray;
     border-radius: 25px;
     width: 85%;
+    min-width: 300px;
     height: 50px;
     -webkit-transition-duration: 0.4s;
     /* Safari */
@@ -357,11 +369,13 @@ button {
 #greetBtn:hover {
     background-color: darkturquoise;
 }
-#resetBtn:hover{
+
+#resetBtn:hover {
     background-color: darkturquoise;
 }
 
-button:focus,button:active {
+button:focus,
+button:active {
 
     outline: none !important;
     box-shadow: none;
@@ -379,10 +393,43 @@ button:focus,button:active {
 }
 
 
-#counterAndResetBox{
+/*
+#counterAndResetBox {
     position: relative;
     bottom: 50px;
 }
-#p1{
-/*    width: 720px;*/
+*/
+
+#p1 {
+    /*    width: 720px;*/
+}
+
+/*Radio buttons style*/
+
+.radio-toolbar {
+    margin: 10px;
+}
+
+.radio-toolbar input[type="radio"] {
+    display: none;
+}
+
+.radio-toolbar label {
+    display: inline-block;
+    height: 10px;
+    /*    padding: 15px 15px;*/
+    padding: 0px 14px 16px 7px;
+    /*    font-family: Arial;*/
+    font-size: 16px;
+    border: 2px solid #444;
+    border-radius: 5px;
+}
+
+.radio-toolbar label:hover {
+    background-color: #dfd;
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: darkturquoise;
+    border-color: black;
 }
