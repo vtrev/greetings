@@ -12,7 +12,6 @@ var resetBtn = document.querySelector('#resetBtn');
 var displayCount = document.querySelector('#countNumber');
 //get the name of the user from the textbox 
 var getName = function () {
-    console.log('checking name...');
     var name = getInput.value;
     name = name.trim();
     //Make sure the first letter of the name is Uppercase
@@ -50,64 +49,6 @@ var checkMap = function () {
     }
 }
 
-//==================LOGIC=============================
-
-// the greetings factory function 
-var GreetingsFactory = function (greetMap) {
-    var greetNow = function (inputName, language) {
-
-        if (greetMap[inputName] === undefined) {
-            greetMap[inputName] = 0;
-            var counter = JSON.parse(localStorage.getItem('counter'));
-            //increament to the counter if the user has not been registered to the map
-            localStorage.setItem('counter', JSON.parse(counter + 1));
-
-        }
-        //return a greeting based on the given language
-        if (language === 'English') {
-            return 'Hello ' + inputName + '!'
-        }
-        if (language === 'Zulu') {
-
-            return 'Saubona ' + inputName + '!'
-
-
-        }
-
-        if (language === 'Tsonga') {
-
-            return 'Avuxeni ' + inputName + '!'
-
-
-        }
-    }
-
-    //function that returns the checked language button 
-    var setLang = function (value) {
-        var lang = '';
-        if (value === 'English') {
-            lang = 'English';
-        }
-        if (value === 'Zulu') {
-            lang = 'Zulu';
-        }
-        if (value === 'Tsonga') {
-            lang = 'Tsonga';
-        }
-        return lang
-    }
-    //factory returns
-
-    return {
-        greetNow,
-        setLang,
-        greetMap
-    }
-
-
-}
-
-
 
 
 //=======================EVENTS==========================
@@ -137,16 +78,12 @@ greetBtn.addEventListener('click', function run() {
             alert('Please choose your language first');
         }
     } else {
-
         alert('Please type in your name first');
     }
-
 });
-
 //an event listener for the reset stats button
 resetBtn.addEventListener('click', function run() {
     localStorage.setItem('counter', JSON.stringify(0));
     localStorage.setItem('userMap', JSON.stringify({}));
     displayCount.innerHTML = 0;
-
 });
