@@ -302,7 +302,7 @@ p {
         /* background: #333447; */
         border-radius: 25px;
         position: relative;
-        right: 261px;
+        right: 339px;
         top: 17px;
 
     }
@@ -422,7 +422,7 @@ button:active {
     /*    font-family: Arial;*/
     font-size: 16px;
     border: 2px solid #444;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .radio-toolbar label:hover {

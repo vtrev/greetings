@@ -1,4 +1,4 @@
-//=========================DOM======================
+//========================= DOM && STORAGE ITEMS ======================
 
 //adding querySelectors and refs
 
@@ -38,50 +38,32 @@ var setCounter = function () {
 var checkCounter = function () {
     //counter init 
     if (localStorage['counter'] === undefined) {
-        //let zero = ;
-        localStorage.setItem('counter',JSON.stringify(0));
+        localStorage.setItem('counter', JSON.stringify(0));
     }
 
 }
+
+//a function to create a map if there's no map in the local storage
 var checkMap = function () {
-    //console.log(localStorage.getItem('userMap'));
     if (!localStorage.getItem('userMap')) {
-        var emptyObj = {}
-        //map =
-        localStorage.setItem('userMap', JSON.stringify(emptyObj));
-        console.log('map created');
-        console.log(JSON.parse(localStorage.getItem('userMap')));
-
-    } else {
-        //map =
-
-        console.log('map was there ');
-        console.log(JSON.parse(localStorage.getItem('userMap')));
-
+        localStorage.setItem('userMap', JSON.stringify({}));
     }
-
 }
-
-
-
-
 
 //==================LOGIC=============================
 
-// the greetings factory functions 
-
-var GreetingsFactory = function (userMap) {
-
-    var greetMap = userMap;
+// the greetings factory function 
+var GreetingsFactory = function (greetMap) {
     var greetNow = function (inputName, language) {
 
         if (greetMap[inputName] === undefined) {
             greetMap[inputName] = 0;
             var counter = JSON.parse(localStorage.getItem('counter'));
-
+            //increament to the counter if the user has not been registered to the map
             localStorage.setItem('counter', JSON.parse(counter + 1));
 
         }
+        //return a greeting based on the given language
         if (language === 'English') {
             return 'Hello ' + inputName + '!'
         }
@@ -99,6 +81,8 @@ var GreetingsFactory = function (userMap) {
 
         }
     }
+
+    //function that returns the checked language button 
     var setLang = function (value) {
         var lang = '';
         if (value === 'English') {
@@ -112,9 +96,7 @@ var GreetingsFactory = function (userMap) {
         }
         return lang
     }
-
-    //functieeton to take in(from the DOM) and return the user's desired language and return it
-
+    //factory returns
 
     return {
         greetNow,
@@ -129,39 +111,31 @@ var GreetingsFactory = function (userMap) {
 
 
 //=======================EVENTS==========================
+
 //an event listener for the gereet button
 
 greetBtn.addEventListener('click', function run() {
 
     checkMap();
-
+    //an instance of the greet Factory
     var greet = GreetingsFactory(JSON.parse(localStorage.getItem('userMap')));
 
     var radioBtn = document.querySelector('input[name="radioLang"]:checked');
     var nameFromDom = getName().name;
+
+    //ensure no empy name and there is a chaecked radio button
     if (nameFromDom !== "") {
         if (radioBtn !== null) {
-
             getName();
-            //console.log(greet.setLang('Zulu'));
             var langFromDom = greet.setLang(radioBtn.value);
-
-            console.log(JSON.parse(localStorage.getItem('userMap')));
-
-            //counter 
             checkCounter();
-
             displayName.innerHTML = greet.greetNow(nameFromDom, langFromDom);
             localStorage.setItem('userMap', JSON.stringify(greet.greetMap));
-
             setCounter();
             clearBox();
         } else {
             alert('Please choose your language first');
         }
-
-
-
     } else {
 
         alert('Please type in your name first');
@@ -169,11 +143,10 @@ greetBtn.addEventListener('click', function run() {
 
 });
 
-
+//an event listener for the reset stats button
 resetBtn.addEventListener('click', function run() {
     localStorage.setItem('counter', JSON.stringify(0));
     localStorage.setItem('userMap', JSON.stringify({}));
-
     displayCount.innerHTML = 0;
 
 });
