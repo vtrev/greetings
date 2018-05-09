@@ -36,9 +36,9 @@ var setCounter = function () {
 
 var checkCounter = function () {
     //counter init 
-    if (localStorage['counter'] === undefined) {
-        localStorage.setItem('counter', JSON.stringify(0));
-    }
+//    if (localStorage['counter'] === undefined) {
+//        localStorage.setItem('counter', JSON.stringify(0));
+//    }
 
 }
 
