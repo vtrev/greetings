@@ -11,8 +11,23 @@ describe('greet function', function () {
     });
     
     
-//    it('Should return a name with Uppercase first letter even if the input was lowercase ', function () {
-//        var greet = GreetingsFactory({});
-//    });
+   it('Should return a name with Uppercase first letter even if the input was lowercase ', function () {
+       var greet = GreetingsFactory({});
+       assert.equal('Hello Vusi!',greet.greetNow('vusi','English'));
+   });
+
+   it('Should not increase the counter if the name has been greeted', function () {
+    var greet = GreetingsFactory({});
+    
+    var countBeforeGreet = JSON.parse(localStorage.getItem('count'));
+    
+    greet.greetNow('Vusi','English');
+    
+    var countAfterGreet = JSON.parse(localStorage.getItem('count'));
+    
+    
+    
+    assert.equal(countBeforeGreet,countAfterGreet);
+});
 
 });

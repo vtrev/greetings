@@ -7,6 +7,15 @@
 // the greetings factory function 
 var GreetingsFactory = function (greetMap) {
     var greetNow = function (inputName, language) {
+        //fix the format of the name
+        
+        inputName = inputName.toLowerCase();
+        //Make sure the first letter of the name is Uppercase
+        let tmpString = inputName.substr(1, inputName.length);
+
+        let firstCh = inputName.charAt(0).toUpperCase();
+        inputName = firstCh+tmpString
+
         //counter init
         if (localStorage['counter'] === undefined) {
             localStorage.setItem('counter', JSON.stringify(0));

@@ -13,13 +13,9 @@ var displayCount = document.querySelector('#countNumber');
 //get the name of the user from the textbox 
 var getName = function () {
     var name = getInput.value;
-    name = name.toLowerCase();
-    //Make sure the first letter of the name is Uppercase
-    tmpString = name.substr(1, name.length);
 
-    firstCh = name.charAt(0).toUpperCase();
     return {
-        name: firstCh + tmpString
+        name
     }
 }
 
@@ -71,13 +67,13 @@ var submitForm =function(){
             setCounter();
             clearBox();
         } else {
-            alert('Please choose your language first');
+            displayName.innerHTML = ('Please choose your language first');
         }
     } else {
-        alert('Please type in a valid name first');
+        displayName.innerHTML = 'Please type in a valid name first';
 
     }
-    return false;
+        return false;
 };
     // ======================EVENTS==============================
 
