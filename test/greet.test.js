@@ -18,16 +18,14 @@ describe('greet function', function () {
 
    it('Should not increase the counter if the name has been greeted', function () {
     var greet = GreetingsFactory({});
-    
-    var countBeforeGreet = JSON.parse(localStorage.getItem('count'));
-    
     greet.greetNow('Vusi','English');
+    var countGreet1 = JSON.parse(localStorage.getItem('count'));
+    greet.greetNow('Vusi','Zulu');
+    var countGreet2 = JSON.parse(localStorage.getItem('count'));
     
-    var countAfterGreet = JSON.parse(localStorage.getItem('count'));
     
     
-    
-    assert.equal(countBeforeGreet,countAfterGreet);
+    assert.equal(countGreet1,countGreet2);
 });
 
 });
