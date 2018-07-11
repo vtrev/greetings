@@ -4,7 +4,6 @@
 **/
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
-
 /* UNIVERSAL */
 
 html,
@@ -201,85 +200,71 @@ p {
         -webkit-transition-duration: 0.4s;
         /* Safari */
         transition-duration: 0.4s;
-
-
     }
     #counterAndResetBox {
         position: relative;
-        top: 50px;
-
-
+        top: 70px;
+        right: 10px;
     }
     #greetBtn {
         position: relative;
-
+        top: 1px;
     }
     #greetBox {
         position: relative;
         bottom: 110px;
     }
-
-
 }
 
-@media only screen and (min-width: 45em) {
+@media only screen and (min-width: 45em) and (max-width:58em) {
+    #counterAndResetBox {
+        position: relative;
+        right: 8px;
+        top: 60px;
+    }
+}
+
+@media only screen and (min-width: 59em) {
     /* 720px */
     .col-1 {
         width: 4.33%;
     }
-
     .col-2 {
         width: 12.66%;
     }
-
     .col-3 {
         width: 21%;
     }
-
     .col-4 {
         width: 29.33%;
     }
-
     .col-5 {
         width: 37.66%;
     }
-
     .col-6 {
         width: 46%;
     }
-
     .col-7 {
         width: 54.33%;
     }
-
     .col-8 {
         width: 62.66%;
     }
-
     .col-9 {
         width: 71%;
     }
-
     .col-10 {
         width: 79.33%;
     }
-
     .col-11 {
         width: 87.66%;
     }
-
     .col-12 {
         width: 96%;
     }
-
     .hidden-sm {
         display: block;
     }
-
-
-
-
-
 }
 
 @media only screen and (min-width: 60em) {
@@ -301,29 +286,18 @@ p {
         background-color: white;
         /* background: #333447; */
         border-radius: 25px;
-        position: relative;
-        right: 339px;
-        top: 17px;
-
     }
-
     #counterAndResetBox {
         position: relative;
         right: 140px;
-        bottom : 173px;
+        bottom: 173px;
     }
-
-
-
 }
-
-
 
 /* ==========================Custom CSS here ===========================================*/
 
 .center {
     text-align: center;
-
 }
 
 #inputBox:focus,
@@ -341,13 +315,10 @@ p {
     -webkit-transition-duration: 0.4s;
     /* Safari */
     transition-duration: 0.4s;
-
-
 }
 
 #inputBox:hover {
     background-color: darkturquoise;
-
 }
 
 input {
@@ -361,10 +332,13 @@ button {
     background-color: white;
     /* background: #333447; */
     border-radius: 25px;
-
-
 }
 
+#greetBtn {
+    position: relative;
+    bottom: 108px;
+    right: 19px;
+}
 
 #greetBtn:hover {
     background-color: darkturquoise;
@@ -376,13 +350,9 @@ button {
 
 button:focus,
 button:active {
-
     outline: none !important;
     box-shadow: none;
 }
-
-
-
 
 #p1 {
     height: 100px;
@@ -391,7 +361,6 @@ button:active {
 .block {
     display: inline-block;
 }
-
 
 /*
 #counterAndResetBox {
@@ -429,7 +398,7 @@ button:active {
     background-color: #dfd;
 }
 
-.radio-toolbar input[type="radio"]:checked + label {
+.radio-toolbar input[type="radio"]:checked+label {
     background-color: darkturquoise;
     border-color: black;
 }
